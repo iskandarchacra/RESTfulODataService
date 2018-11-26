@@ -101,7 +101,9 @@ Currently supports `$filter` , `$top`, `$skip`, `$orderBy`, and `$expand`
 
 You are able to concatenate `$filter` using **and** or **or**.
 **Examples**:
+
 `/books?$filter=startswith(title, 'F') and id eq 'book1'`
+
 `/books?$filter=contains(title, 'S') and rating gt 2`
 
 > Use single quotes for string values
