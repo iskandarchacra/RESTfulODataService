@@ -9,6 +9,7 @@ using Newtonsoft.Json.Converters;
 using RESTfulODataService.Extensions;
 using RESTfulODataService.Sample.Data;
 using RESTfulODataService.Sample.Data.Repositories;
+using RESTfulODataService.Sample.Data.Repositories.Authors;
 using RESTfulODataService.Sample.Services.JsonConverters;
 using System.Collections.Generic;
 
@@ -29,6 +30,7 @@ namespace RESTfulODataService.Sample
             services.AddScoped<LibraryDbContext>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddTransient<IBookRepository, BookRepository>();
+            services.AddTransient<IAuthorRepository, AuthorRepository>();
             services.AddTransient<IReaderRepository, ReaderRepository>();
             services.AddDbContext<LibraryDbContext>(b => b.UseInMemoryDatabase("Library_DB"));
             services.AddRESTfulODataService();
@@ -37,9 +39,9 @@ namespace RESTfulODataService.Sample
                 options.SerializerSettings.Converters = new List<JsonConverter>
                 {
                     new StringEnumConverter { CamelCaseText = true },
-                    new BookJsonConverter(),
                     new ReaderJsonConverter(),
-                    new AuthorJsonConverter()
+                    new AuthorJsonConverter(),
+                    new BookJsonConverter()
                 };
                 options.SerializerSettings.DateFormatHandling = DateFormatHandling.IsoDateFormat;
                 options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;

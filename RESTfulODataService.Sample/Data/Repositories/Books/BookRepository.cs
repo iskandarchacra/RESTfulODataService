@@ -1,5 +1,4 @@
 ﻿using RESTfulODataService.Sample.Models;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace RESTfulODataService.Sample.Data.Repositories
