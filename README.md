@@ -100,6 +100,7 @@ Currently supports `$filter` , `$top`, `$skip`, `$orderBy`, and `$expand`
 
 
 You are able to concatenate `$filter` using **and** or **or**.
+
 **Examples**:
 
 `/books?$filter=startswith(title, 'F') and id eq 'book1'`
